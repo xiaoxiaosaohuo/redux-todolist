@@ -14,3 +14,8 @@ export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id
 })
+export const receiveTodos = (filter,response) =>({
+        type:'receive_todos',
+        filter,
+        response
+})
