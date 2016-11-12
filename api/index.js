@@ -3,15 +3,15 @@ const fakeDatabase = {
 	todos:[{
 		id:v4(),
 		text:'hey',
-		complete:true
+		completed:true
 	},{
 		id:v4(),
 		text:'ho',
-		complete:true
+		completed:true
 	},{
 		id:v4(),
 		text:'let’s go',
-		complete:false
+		completed:false
 	}]
 }
 
@@ -31,4 +31,21 @@ export const fetchTodos = (filter) =>
 			throw new Error(`Unknow filter:${filter}`);
 
 		}
+	})
+export const addTodo = (text) =>
+	delay(500).then(()=>{
+		const todo ={
+			id:v4(),
+			text,
+			completed:false
+		};
+		fakeDatabase.todos.push(todo);
+		return todo;
+	})
+
+export const toggleTodo = (id) =>
+	delay(500).then(() =>{
+		const todo = fakeDatabase.todos.find(t =>t.id===id);
+		todo.completed = !todo.completed;
+		return todo;
 	})
