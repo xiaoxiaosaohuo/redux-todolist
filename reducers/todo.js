@@ -1,6 +1,7 @@
 const todo = (state, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case 'add_todo_success':
+    alert(23)
       return {
         id: action.id,
         text: action.text,
